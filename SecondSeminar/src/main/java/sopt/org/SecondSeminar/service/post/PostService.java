@@ -20,11 +20,6 @@ public class PostService {
         return newPost.getId();
     }
 
-    public String getOne(Long postId) {
-        Post post = postList.get(postId.intValue() - 1);
-        return post.getId() + "번 게시물" + post.getTitle() + "\n" + post.getContent();
-    }
-
     public String search(String name) {
         String searchedPost = "";
         for (Post post: postList) {

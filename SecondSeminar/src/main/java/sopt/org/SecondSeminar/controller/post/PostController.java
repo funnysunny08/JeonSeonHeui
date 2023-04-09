@@ -25,7 +25,7 @@ public class PostController {
     @GetMapping("/post/{postId}")
     public String getOne(@PathVariable final Long postId) {
 
-        String post = postService.getOne(postId);
+        String post = postList.get(postId.intValue() - 1).toString();
         return post;
     }
 
