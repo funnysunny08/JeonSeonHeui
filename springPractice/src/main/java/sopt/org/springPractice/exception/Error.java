@@ -15,6 +15,7 @@ public enum Error {
     REQUEST_VALIDATION_EXCEPTION(HttpStatus.BAD_REQUEST, "잘못된 요청입니다"),
     LOGIN_SUCCESS(HttpStatus.OK, "로그인에 성공했습니다."),
     INVALID_PASSWORD_EXCEPTION(HttpStatus.BAD_REQUEST, "잘못된 비밀번호가 입력됐습니다."),
+    NOT_FOUND_IMAGE_EXCEPTION(HttpStatus.BAD_REQUEST, "잘못된 이미지 파일입니다"),
 
     /**
      * 401 UNAUTHORIZED
