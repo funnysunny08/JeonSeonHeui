@@ -18,7 +18,7 @@ public class PostController {
 
         Long postId = postService.post(request);
         System.out.println(postList.get(postId.intValue() - 1).toString());
-
+gf
         return postId + " 번 게시글이 등록되었습니다. ";
     }
 
