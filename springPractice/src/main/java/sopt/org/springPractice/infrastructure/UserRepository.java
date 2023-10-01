@@ -1,7 +1,7 @@
-package sopt.org.ThirdSeminar.infrastructure;
+package sopt.org.springPractice.infrastructure;
 
 import org.springframework.data.repository.Repository;
-import sopt.org.ThirdSeminar.domain.User;
+import sopt.org.springPractice.domain.User;
 
 import java.util.Optional;
 
@@ -14,7 +14,9 @@ public interface UserRepository extends Repository<User, Long> {
     Optional<User> findByEmail(String email);
     boolean existsByEmail(String email);
 
+    Optional<User> findById(Long userId);
+
     // UPDATE
 
-    // DELETE
+    //DELETE
 }

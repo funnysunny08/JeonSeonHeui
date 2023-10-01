@@ -6,6 +6,8 @@ import org.springframework.transaction.annotation.Transactional;
 import sopt.org.ThirdSeminar.controller.dto.request.UserRequestDto;
 import sopt.org.ThirdSeminar.controller.dto.response.UserResponseDto;
 import sopt.org.ThirdSeminar.domain.User;
+import sopt.org.ThirdSeminar.exception.ErrorStatus;
+import sopt.org.ThirdSeminar.exception.model.ConflictException;
 import sopt.org.ThirdSeminar.infrastructure.UserRepository;
 
 @Service
@@ -16,14 +18,18 @@ public class UserService {
 
     @Transactional
     public UserResponseDto create(UserRequestDto request) {
-        User user = User.builder()
-                .email(request.getEmail())
-                .nickname(request.getNickname())
-                .password(request.getPassword())
-                .build();
+        if (userRepository.existsByEmail(request.getEmail())) {
+            throw new ConflictException(ErrorStatus.CONFLICT_EMAIL_EXCEPTION, ErrorStatus.CONFLICT_EMAIL_EXCEPTION.getMessage());
+        }
+        User newUser = User.newInstance(
+                request.getNickname(),
+                request.getEmail(),
+                request.getPassword()
+        );
 
-        userRepository.save(user);
 
-        return UserResponseDto.of(user.getId(), user.getNickname());
+        userRepository.save(newUser);
+
+        return UserResponseDto.of(newUser.getId(), newUser.getNickname());
     }
 }

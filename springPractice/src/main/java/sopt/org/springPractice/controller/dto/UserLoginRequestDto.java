@@ -1,4 +1,4 @@
-package sopt.org.ThirdSeminar.controller.dto.request;
+package sopt.org.springPractice.controller.dto;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -11,11 +11,7 @@ import javax.validation.constraints.Pattern;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class UserRequestDto {
-
-    @NotBlank
-    @Pattern(regexp = "^[가-힣a-zA-Z]{2,10}$", message = "닉네임 형식에 맞지 않습니다")
-    private String nickname;
+public class UserLoginRequestDto {
 
     @Email(message = "이메일 형식에 맞지 않습니다")
     @NotBlank

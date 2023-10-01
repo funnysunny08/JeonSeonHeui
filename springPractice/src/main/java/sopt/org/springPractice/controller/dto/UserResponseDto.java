@@ -1,4 +1,4 @@
-package sopt.org.ThirdSeminar.controller.dto.response;
+package sopt.org.springPractice.controller.dto;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

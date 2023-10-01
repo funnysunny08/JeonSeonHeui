@@ -1,13 +1,15 @@
-package sopt.org.ThirdSeminar.domain;
+package sopt.org.springPractice.domain;
 
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class User extends AuditingTimeEntity {
+public class User extends AuditingTimeEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
